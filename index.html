@@ -3,7 +3,44 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>What Should I Do? — Boredom Buster</title>
+<!-- ===================== SEO ===================== -->
+<title>What To Do When Bored — Free Random Activity & Hobby Generator</title>
+<meta name="description" content="Bored? Get an instant idea of what to do — alone or with friends, indoors or out. A free random activity generator with 100+ things to do when you're bored." />
+<meta name="keywords" content="what to do when bored, i'm bored, things to do when bored, boredom buster, random activity generator, hobby randomiser, fun things to do, activities for friends" />
+<meta name="author" content="Hobby Randomiser" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#17123a" />
+<link rel="canonical" href="https://masarrath-28.github.io/hobby-randomiser/" />
+
+<!-- Open Graph (WhatsApp, Facebook, LinkedIn previews) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="What Should I Do?" />
+<meta property="og:title" content="What To Do When Bored — Free Random Activity Generator" />
+<meta property="og:description" content="Stuck for ideas? Spin for something fun to do right now — solo or with friends. 100+ activities, free, no signup." />
+<meta property="og:url" content="https://masarrath-28.github.io/hobby-randomiser/" />
+<meta property="og:locale" content="en_US" />
+<!-- Tip: add a 1200x630 preview image later, then uncomment:
+<meta property="og:image" content="https://masarrath-28.github.io/hobby-randomiser/preview.png" /> -->
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="What To Do When Bored — Free Random Activity Generator" />
+<meta name="twitter:description" content="Spin for something fun to do right now — solo or with friends. 100+ ideas, free." />
+
+<!-- Structured data: helps Google understand what this page is -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "What Should I Do? — Boredom Buster",
+  "url": "https://masarrath-28.github.io/hobby-randomiser/",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Any",
+  "description": "A free random activity generator that suggests fun things to do when you're bored, filtered by solo or group, indoor or outdoor, and chill or active.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<!-- =============================================== -->
 
 <!-- ============================================================= -->
 <!-- 1. GOOGLE ANALYTICS  — replace G-XXXXXXXXXX with your real ID  -->
@@ -38,7 +75,7 @@
       radial-gradient(1200px 600px at 80% -10%, #3a2a8c 0%, transparent 60%),
       radial-gradient(900px 500px at -10% 110%, #5b2a6b 0%, transparent 55%),
       var(--night);
-    display: flex; align-items: center; justify-content: center; padding: 28px 18px;
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 40px 18px 60px; gap: 40px;
   }
   .card { width: 100%; max-width: 480px; }
   header { text-align: center; margin-bottom: 22px; }
@@ -101,6 +138,15 @@
   .go:disabled { opacity: .6; cursor: default; box-shadow: 0 6px 0 #c9a400; transform: none; }
   .go:focus-visible { outline: 3px solid var(--mint); outline-offset: 3px; }
   footer { text-align: center; margin-top: 18px; color: var(--muted); font-size: 12px; }
+
+  /* ---- SEO / readable content ---- */
+  .content { width: 100%; max-width: 640px; color: var(--ink); line-height: 1.65; }
+  .content h2 { font-family: 'Fredoka', sans-serif; font-size: 24px; margin: 28px 0 10px; }
+  .content h3 { font-family: 'Fredoka', sans-serif; font-size: 18px; color: var(--pop); margin: 22px 0 6px; }
+  .content p { color: #d9d4f5; font-size: 15px; margin: 0 0 12px; }
+  .content ul { color: #d9d4f5; font-size: 15px; padding-left: 20px; margin: 0 0 12px; }
+  .content li { margin-bottom: 5px; }
+  .content .faq-q { font-weight: 600; color: var(--ink); margin-top: 14px; }
 
   /* ---- email modal ---- */
   .overlay {
@@ -170,6 +216,31 @@
     <button class="go" id="go">Randomise</button>
     <footer>100+ ideas · no signup · just go do it</footer>
   </main>
+
+  <!-- ===================== SEO CONTENT ===================== -->
+  <section class="content">
+    <h2>What to do when you're bored</h2>
+    <p>Everyone hits that moment — a free afternoon, friends over, or a quiet evening alone, and no idea what to actually do with it. This free activity generator fixes that in one tap. Spin it and get a random thing to do, matched to your mood: alone or with friends, indoors or outside, chilled out or full of energy.</p>
+    <p>There are over 100 hand-picked ideas in the mix, from quick five-minute distractions to activities that can fill a whole afternoon. No sign-up, no cost — just spin and go do it.</p>
+
+    <h3>Bored at home alone?</h3>
+    <p>Set the filter to <strong>Solo</strong> and get ideas built for one: learn a few guitar chords, try origami, start a tiny herb garden, run a home workout, or teach yourself a card trick. Small, satisfying things that turn a dull hour into something you actually enjoyed.</p>
+
+    <h3>Bored with friends?</h3>
+    <p>Switch to <strong>Friends</strong> for group-friendly ideas: charades, a blind taste test, a mini dance battle, a DIY escape-room challenge, or a mystery-ingredient cook-off. Perfect for sleepovers, hangouts, or breaking the "so… what do you want to do?" loop.</p>
+
+    <h3>Indoor and outdoor ideas</h3>
+    <p>Rainy day? Filter to <strong>Indoors</strong> for cosy, no-gear activities. Nice weather? Pick <strong>Outdoors</strong> for photo walks, geocaching, park games, stargazing, and more. You can also match your energy with the <strong>Chill</strong> and <strong>Active</strong> filters.</p>
+
+    <h2>Frequently asked questions</h2>
+    <p class="faq-q">Is this free to use?</p>
+    <p>Yes — completely free, with no account needed. Just open the page and spin.</p>
+    <p class="faq-q">How many activities are there?</p>
+    <p>Over 100 ideas, spread across solo and group, indoor and outdoor, and chill and active — so whatever mood you're in, there's something that fits.</p>
+    <p class="faq-q">Can I use it for a group or party?</p>
+    <p>Absolutely. Set the filter to Friends and let the spinner pick your next group activity — great for parties, sleepovers, and get-togethers.</p>
+  </section>
+  <!-- ====================================================== -->
 
   <!-- email modal -->
   <div class="overlay" id="overlay">
