@@ -4,6 +4,18 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>What Should I Do? — Boredom Buster</title>
+
+<!-- ============================================================= -->
+<!-- 1. GOOGLE ANALYTICS  — replace G-XXXXXXXXXX with your real ID  -->
+<!-- ============================================================= -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B690PG5975"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B690PG5975');
+</script>
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
@@ -11,92 +23,51 @@
     --night: #17123a;
     --night-2: #221a52;
     --panel: #2b2166;
-    --pop: #ffd23f;   /* game-show gold */
+    --pop: #ffd23f;
     --coral: #ff6b6b;
     --mint: #4ecdc4;
     --ink: #f6f4ff;
     --muted: #a79fd6;
     --radius: 22px;
   }
-
   * { box-sizing: border-box; }
-
   body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: 'Inter', system-ui, sans-serif;
-    color: var(--ink);
+    margin: 0; min-height: 100vh;
+    font-family: 'Inter', system-ui, sans-serif; color: var(--ink);
     background:
       radial-gradient(1200px 600px at 80% -10%, #3a2a8c 0%, transparent 60%),
       radial-gradient(900px 500px at -10% 110%, #5b2a6b 0%, transparent 55%),
       var(--night);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 28px 18px;
+    display: flex; align-items: center; justify-content: center; padding: 28px 18px;
   }
-
-  .card {
-    width: 100%;
-    max-width: 480px;
-  }
-
+  .card { width: 100%; max-width: 480px; }
   header { text-align: center; margin-bottom: 22px; }
-
   .eyebrow {
-    font-family: 'Fredoka', sans-serif;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 12px;
-    color: var(--pop);
-    margin: 0 0 6px;
+    font-family: 'Fredoka', sans-serif; letter-spacing: 2px; text-transform: uppercase;
+    font-size: 12px; color: var(--pop); margin: 0 0 6px;
   }
-
   h1 {
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 700;
-    font-size: clamp(30px, 8vw, 44px);
-    line-height: 1.02;
-    margin: 0;
+    font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: clamp(30px, 8vw, 44px); line-height: 1.02; margin: 0;
   }
   h1 .curl { color: var(--coral); }
 
-  /* ---- filter chips ---- */
-  .filters {
-    display: grid;
-    gap: 12px;
-    margin: 22px 0;
-  }
+  .filters { display: grid; gap: 12px; margin: 22px 0; }
   .row { display: flex; gap: 8px; }
   .chip {
-    flex: 1;
-    border: 1.5px solid rgba(255,255,255,0.14);
-    background: rgba(255,255,255,0.04);
-    color: var(--muted);
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 11px 6px;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: all .15s ease;
+    flex: 1; border: 1.5px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.04); color: var(--muted);
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;
+    padding: 11px 6px; border-radius: 14px; cursor: pointer; transition: all .15s ease;
   }
   .chip:hover { border-color: rgba(255,255,255,0.3); color: var(--ink); }
-  .chip.active {
-    background: var(--pop);
-    color: #2a1e00;
-    border-color: var(--pop);
-  }
+  .chip.active { background: var(--pop); color: #2a1e00; border-color: var(--pop); }
   .chip:focus-visible { outline: 3px solid var(--mint); outline-offset: 2px; }
 
-  /* ---- reel window ---- */
   .window {
-    position: relative;
-    height: 132px;
-    border-radius: var(--radius);
+    position: relative; height: 132px; border-radius: var(--radius);
     background: linear-gradient(180deg, var(--night-2), var(--panel));
-    border: 1.5px solid rgba(255,255,255,0.1);
-    overflow: hidden;
+    border: 1.5px solid rgba(255,255,255,0.1); overflow: hidden;
     box-shadow: inset 0 0 40px rgba(0,0,0,0.4);
   }
   .window::before, .window::after {
@@ -104,13 +75,10 @@
   }
   .window::before { top: 0; background: linear-gradient(var(--night-2), transparent); }
   .window::after { bottom: 0; background: linear-gradient(transparent, var(--panel)); }
-
   .marker {
     position: absolute; left: 0; right: 0; top: 50%; height: 44px; transform: translateY(-50%);
-    border-top: 1.5px solid var(--pop); border-bottom: 1.5px solid var(--pop);
-    z-index: 2; pointer-events: none;
+    border-top: 1.5px solid var(--pop); border-bottom: 1.5px solid var(--pop); z-index: 2; pointer-events: none;
   }
-
   .reel { position: absolute; left: 0; right: 0; top: 0; }
   .slot {
     height: 44px; display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -118,29 +86,13 @@
   }
   .slot .emoji { font-size: 20px; }
 
-  /* ---- result ---- */
-  .result {
-    text-align: center;
-    min-height: 44px;
-    margin: 16px 4px 20px;
-    color: var(--muted);
-    font-size: 14px;
-  }
+  .result { text-align: center; min-height: 44px; margin: 16px 4px 20px; color: var(--muted); font-size: 14px; }
   .result strong { color: var(--mint); }
 
-  /* ---- button ---- */
   .go {
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: .5px;
-    color: #2a1e00;
-    background: var(--pop);
-    padding: 18px;
-    border-radius: 18px;
+    width: 100%; border: none; cursor: pointer;
+    font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: .5px;
+    color: #2a1e00; background: var(--pop); padding: 18px; border-radius: 18px;
     box-shadow: 0 6px 0 #c9a400, 0 12px 24px rgba(255,210,63,0.25);
     transition: transform .08s ease, box-shadow .08s ease;
   }
@@ -148,12 +100,40 @@
   .go:active { transform: translateY(4px); box-shadow: 0 2px 0 #c9a400; }
   .go:disabled { opacity: .6; cursor: default; box-shadow: 0 6px 0 #c9a400; transform: none; }
   .go:focus-visible { outline: 3px solid var(--mint); outline-offset: 3px; }
-
   footer { text-align: center; margin-top: 18px; color: var(--muted); font-size: 12px; }
 
-  @media (prefers-reduced-motion: reduce) {
-    .reel { transition: none !important; }
+  /* ---- email modal ---- */
+  .overlay {
+    position: fixed; inset: 0; background: rgba(10,6,28,0.72);
+    display: none; align-items: center; justify-content: center; padding: 20px; z-index: 50;
   }
+  .overlay.show { display: flex; }
+  .modal {
+    width: 100%; max-width: 380px; background: linear-gradient(180deg, var(--night-2), var(--panel));
+    border: 1.5px solid rgba(255,255,255,0.12); border-radius: var(--radius);
+    padding: 26px 22px; text-align: center; position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .modal .x {
+    position: absolute; top: 12px; right: 14px; background: none; border: none;
+    color: var(--muted); font-size: 22px; cursor: pointer; line-height: 1;
+  }
+  .modal h2 { font-family: 'Fredoka', sans-serif; font-size: 22px; margin: 4px 0 8px; }
+  .modal p { color: var(--muted); font-size: 14px; margin: 0 0 16px; }
+  .modal input {
+    width: 100%; padding: 13px 14px; border-radius: 12px; border: 1.5px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05); color: var(--ink); font-size: 15px; margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+  .modal input:focus { outline: none; border-color: var(--mint); }
+  .modal .submit {
+    width: 100%; border: none; cursor: pointer; font-family: 'Fredoka', sans-serif; font-weight: 700;
+    font-size: 16px; color: #2a1e00; background: var(--pop); padding: 13px; border-radius: 12px;
+  }
+  .modal .skip { background: none; border: none; color: var(--muted); font-size: 13px; margin-top: 12px; cursor: pointer; }
+  .modal .note { color: var(--mint); font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) { .reel { transition: none !important; } }
 </style>
 </head>
 <body>
@@ -187,13 +167,39 @@
     </div>
 
     <p class="result" id="result" aria-live="polite">Pick your filters, then spin.</p>
-
     <button class="go" id="go">Randomise</button>
-
-    <footer>40+ ideas · no signup · just go do it</footer>
+    <footer>100+ ideas · no signup · just go do it</footer>
   </main>
 
+  <!-- email modal -->
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <button class="x" id="modalX" aria-label="Close">&times;</button>
+      <div id="modalForm">
+        <h2>Never run out of ideas 💡</h2>
+        <p>Get one fresh thing to do sent to your inbox every week. Free, unsubscribe anytime.</p>
+        <input type="email" id="email" placeholder="you@email.com" />
+        <button class="submit" id="submitEmail">Send me ideas</button>
+        <br><button class="skip" id="skipEmail">No thanks, keep spinning</button>
+      </div>
+      <div id="modalThanks" style="display:none;">
+        <h2>You're in! 🎉</h2>
+        <p class="note">First idea lands in your inbox soon. Back to spinning!</p>
+      </div>
+    </div>
+  </div>
+
 <script>
+/* ===================================================================
+   2. EMAIL FORM — replace with your Formspree endpoint after signup
+   =================================================================== */
+const FORMSPREE_URL = "https://formspree.io/f/XXXXXXXX";
+
+/* Show the email prompt after this many spins. Set very high (e.g. 9999)
+   to effectively turn it off, or turn HARD_GATE on to block spinning. */
+const SPIN_TRIGGER = 3;
+const HARD_GATE = false;  // true = must give email to keep spinning
+
 const ACTIVITIES = [
   {e:"🎸",t:"Learn 3 guitar chords",who:"solo",where:"indoor",vibe:"chill"},
   {e:"✏️",t:"Speed-sketch your desk",who:"solo",where:"indoor",vibe:"chill"},
@@ -235,14 +241,99 @@ const ACTIVITIES = [
   {e:"🛍️",t:"Explore a local market",who:"any",where:"outdoor",vibe:"chill"},
   {e:"🏁",t:"Race to finish a puzzle",who:"group",where:"indoor",vibe:"active"},
   {e:"🪙",t:"Learn a coin trick",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"📓",t:"Write a journal entry",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"📖",t:"Read 20 pages of a book",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"🧠",t:"Do a crossword or sudoku",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"🌸",t:"Write a haiku",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"✒️",t:"Learn calligraphy basics",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"🎨",t:"Try watercolor painting",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"🪢",t:"Learn a new knot",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"📮",t:"Write a letter to future you",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"🌈",t:"Make a vision board",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"📜",t:"Memorize a short poem",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"🎹",t:"Learn a song melody",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"🧵",t:"Try a simple embroidery",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"🗂️",t:"Reorganize your photos",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"💭",t:"Brainstorm 10 side-project ideas",who:"solo",where:"indoor",vibe:"chill"},
+  {e:"🔥",t:"Try a HIIT session",who:"solo",where:"indoor",vibe:"active"},
+  {e:"🧎",t:"Do a yoga flow",who:"solo",where:"indoor",vibe:"active"},
+  {e:"🪅",t:"Jump rope indoors",who:"solo",where:"indoor",vibe:"active"},
+  {e:"🥊",t:"Try shadow boxing",who:"solo",where:"indoor",vibe:"active"},
+  {e:"🧗",t:"Do a stair-climb workout",who:"solo",where:"outdoor",vibe:"active"},
+  {e:"🏃",t:"Go for a run",who:"solo",where:"outdoor",vibe:"active"},
+  {e:"⛸️",t:"Rollerblade or skate",who:"solo",where:"outdoor",vibe:"active"},
+  {e:"🥾",t:"Hike a nearby trail",who:"any",where:"outdoor",vibe:"active"},
+  {e:"🚶",t:"Take a mindful walk",who:"solo",where:"outdoor",vibe:"chill"},
+  {e:"🐦",t:"Birdwatch for 15 minutes",who:"solo",where:"outdoor",vibe:"chill"},
+  {e:"🌷",t:"Photograph flowers",who:"solo",where:"outdoor",vibe:"chill"},
+  {e:"🪨",t:"Collect interesting stones",who:"any",where:"outdoor",vibe:"chill"},
+  {e:"☀️",t:"Read outside in the sun",who:"solo",where:"outdoor",vibe:"chill"},
+  {e:"📚",t:"Host a mini book club",who:"group",where:"indoor",vibe:"chill"},
+  {e:"❓",t:"Play 20 questions",who:"group",where:"indoor",vibe:"chill"},
+  {e:"🤥",t:"Two truths and a lie",who:"group",where:"indoor",vibe:"chill"},
+  {e:"♟️",t:"Play chess or checkers",who:"group",where:"indoor",vibe:"chill"},
+  {e:"🍵",t:"Have a tea tasting",who:"group",where:"indoor",vibe:"chill"},
+  {e:"📝",t:"Write a collaborative story",who:"group",where:"indoor",vibe:"chill"},
+  {e:"🍲",t:"Cook a family recipe together",who:"group",where:"indoor",vibe:"chill"},
+  {e:"🂡",t:"Play cards (rummy or poker)",who:"group",where:"indoor",vibe:"chill"},
+  {e:"🎯",t:"Set up a mini trivia night",who:"group",where:"indoor",vibe:"chill"},
+  {e:"🖇️",t:"Build a card tower",who:"group",where:"indoor",vibe:"chill"},
+  {e:"🎈",t:"Balloon keep-up challenge",who:"group",where:"indoor",vibe:"active"},
+  {e:"🧊",t:"Freeze dance rounds",who:"group",where:"indoor",vibe:"active"},
+  {e:"🏰",t:"Build a pillow fort",who:"group",where:"indoor",vibe:"active"},
+  {e:"🌀",t:"Play Twister",who:"group",where:"indoor",vibe:"active"},
+  {e:"🔦",t:"Indoor flashlight hide-and-seek",who:"group",where:"indoor",vibe:"active"},
+  {e:"🎸",t:"Put on an air-band show",who:"group",where:"indoor",vibe:"active"},
+  {e:"🧺",t:"Have a picnic in the park",who:"group",where:"outdoor",vibe:"chill"},
+  {e:"🌅",t:"Watch the sunset together",who:"any",where:"outdoor",vibe:"chill"},
+  {e:"🥕",t:"Visit a farmers market",who:"any",where:"outdoor",vibe:"chill"},
+  {e:"🖍️",t:"Draw with sidewalk chalk",who:"group",where:"outdoor",vibe:"chill"},
+  {e:"🌥️",t:"Go cloud-watching",who:"any",where:"outdoor",vibe:"chill"},
+  {e:"🏳️",t:"Play capture the flag",who:"group",where:"outdoor",vibe:"active"},
+  {e:"⚽",t:"Kick a football around",who:"group",where:"outdoor",vibe:"active"},
+  {e:"🪁",t:"Fly a kite",who:"any",where:"outdoor",vibe:"active"},
+  {e:"🚴",t:"Go on a group bike ride",who:"group",where:"outdoor",vibe:"active"},
+  {e:"🏸",t:"Play badminton",who:"group",where:"outdoor",vibe:"active"},
+  {e:"🏐",t:"Play park volleyball",who:"group",where:"outdoor",vibe:"active"},
+  {e:"💦",t:"Have a water balloon fight",who:"group",where:"outdoor",vibe:"active"},
+  {e:"🏃‍♂️",t:"Set up an obstacle course race",who:"group",where:"outdoor",vibe:"active"},
+  {e:"🎩",t:"Learn a magic trick",who:"any",where:"indoor",vibe:"chill"},
+  {e:"🍮",t:"Try a new dessert recipe",who:"any",where:"indoor",vibe:"chill"},
+  {e:"✂️",t:"Do a DIY craft project",who:"any",where:"indoor",vibe:"chill"},
+  {e:"📔",t:"Start a scrapbook",who:"any",where:"indoor",vibe:"chill"},
+  {e:"🍕",t:"Make homemade pizza",who:"any",where:"indoor",vibe:"chill"},
+  {e:"🔬",t:"Try a simple science experiment",who:"any",where:"indoor",vibe:"chill"},
+  {e:"🛠️",t:"Assemble a model kit",who:"any",where:"indoor",vibe:"chill"},
+  {e:"🥘",t:"Attempt a street-food dish",who:"any",where:"indoor",vibe:"chill"},
+  {e:"🕯️",t:"Try candle or soap making",who:"any",where:"indoor",vibe:"chill"},
+  {e:"🎲",t:"Invent your own game",who:"any",where:"indoor",vibe:"chill"},
+  {e:"🏛️",t:"Visit a museum",who:"any",where:"outdoor",vibe:"chill"},
+  {e:"🗺️",t:"Explore a new neighborhood",who:"any",where:"outdoor",vibe:"chill"},
+  {e:"🍦",t:"Go out for ice cream",who:"any",where:"outdoor",vibe:"chill"},
+  {e:"📚",t:"Browse a bookstore",who:"any",where:"outdoor",vibe:"chill"},
+  {e:"☕",t:"Try a brand-new café",who:"any",where:"outdoor",vibe:"chill"},
+  {e:"🏊",t:"Go swimming",who:"any",where:"outdoor",vibe:"active"},
+  {e:"🏓",t:"Try a new sport",who:"any",where:"outdoor",vibe:"active"},
+  {e:"🎳",t:"Go bowling",who:"group",where:"indoor",vibe:"active"},
+  {e:"⛳",t:"Play mini golf",who:"any",where:"outdoor",vibe:"active"},
+  {e:"🧗‍♀️",t:"Visit a climbing gym",who:"any",where:"indoor",vibe:"active"},
+  {e:"🛼",t:"Go to a skating rink",who:"any",where:"indoor",vibe:"active"},
+  {e:"🎡",t:"Visit a local fair or park",who:"any",where:"outdoor",vibe:"chill"},
 ];
 
 const state = { who:"any", where:"any", vibe:"any" };
 const reel = document.getElementById('reel');
 const go = document.getElementById('go');
 const result = document.getElementById('result');
+const overlay = document.getElementById('overlay');
 const SLOT_H = 44;
 let spinning = false;
+let spinCount = 0;
+
+/* remember if user already subscribed/dismissed (safe if storage blocked) */
+function store(key, val) { try { localStorage.setItem(key, val); } catch(e){} }
+function read(key) { try { return localStorage.getItem(key); } catch(e){ return null; } }
+let emailDone = read('hr_email') === 'done';
 
 document.querySelectorAll('.row').forEach(row => {
   const group = row.dataset.group;
@@ -260,60 +351,79 @@ function matches(a) {
       && (state.where === "any" || a.where === "any" || a.where === state.where)
       && (state.vibe === "any" || a.vibe === "any" || a.vibe === state.vibe);
 }
-
-function slotHTML(a) {
-  return `<div class="slot"><span class="emoji">${a.e}</span>${a.t}</div>`;
-}
+function slotHTML(a) { return `<div class="slot"><span class="emoji">${a.e}</span>${a.t}</div>`; }
 
 function spin() {
   if (spinning) return;
+
+  // hard gate: block once trigger reached and not subscribed
+  if (HARD_GATE && !emailDone && spinCount >= SPIN_TRIGGER) { openModal(); return; }
+
   const pool = ACTIVITIES.filter(matches);
-  if (pool.length === 0) {
-    result.innerHTML = "No match — loosen a filter and try again.";
-    return;
-  }
-  spinning = true;
-  go.disabled = true;
-  result.textContent = "Rolling…";
+  if (pool.length === 0) { result.innerHTML = "No match — loosen a filter and try again."; return; }
+
+  spinning = true; go.disabled = true; result.textContent = "Rolling…";
+  spinCount++;
+  gtag('event', 'spin', { spin_number: spinCount });   // <-- analytics event
 
   const pick = pool[Math.floor(Math.random() * pool.length)];
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (reduce) {
     reel.style.transition = "none";
-    reel.style.transform = "translateY(-22px)";
     reel.innerHTML = slotHTML(pick);
     reel.style.transform = `translateY(${(132 - SLOT_H)/2}px)`;
-    finish(pick);
-    return;
+    finish(pick); return;
   }
 
-  // build a long strip of random slots ending on the pick
   const strip = [];
-  const spins = 34;
-  for (let i = 0; i < spins; i++) strip.push(ACTIVITIES[Math.floor(Math.random()*ACTIVITIES.length)]);
+  for (let i = 0; i < 34; i++) strip.push(ACTIVITIES[Math.floor(Math.random()*ACTIVITIES.length)]);
   strip.push(pick);
   reel.innerHTML = strip.map(slotHTML).join('');
 
-  const targetIndex = strip.length - 1;
-  const center = (132 - SLOT_H) / 2;
-  const y = -(targetIndex * SLOT_H) + center;
-
+  const y = -((strip.length - 1) * SLOT_H) + (132 - SLOT_H) / 2;
   reel.style.transition = "none";
   reel.style.transform = "translateY(0px)";
-  reel.getBoundingClientRect(); // reflow
+  reel.getBoundingClientRect();
   reel.style.transition = "transform 2.6s cubic-bezier(0.15, 0.9, 0.2, 1)";
   reel.style.transform = `translateY(${y}px)`;
-
   reel.addEventListener('transitionend', () => finish(pick), { once: true });
 }
 
 function finish(pick) {
-  spinning = false;
-  go.disabled = false;
-  go.textContent = "Spin again";
+  spinning = false; go.disabled = false; go.textContent = "Spin again";
   result.innerHTML = `Go do it: <strong>${pick.t}</strong> ${pick.e}`;
+  // soft prompt: after trigger, once, if not already done
+  if (!HARD_GATE && !emailDone && spinCount === SPIN_TRIGGER) openModal();
 }
+
+/* ---- modal logic ---- */
+function openModal() {
+  overlay.classList.add('show');
+  gtag('event', 'email_prompt_shown');
+}
+function closeModal() { overlay.classList.remove('show'); }
+
+document.getElementById('modalX').addEventListener('click', closeModal);
+document.getElementById('skipEmail').addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+
+document.getElementById('submitEmail').addEventListener('click', async () => {
+  const email = document.getElementById('email').value.trim();
+  if (!email || !email.includes('@')) { document.getElementById('email').focus(); return; }
+  try {
+    await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+  } catch(e) {}
+  emailDone = true; store('hr_email', 'done');
+  gtag('event', 'email_captured');
+  document.getElementById('modalForm').style.display = 'none';
+  document.getElementById('modalThanks').style.display = 'block';
+  setTimeout(closeModal, 1800);
+});
 
 go.addEventListener('click', spin);
 </script>
